@@ -196,30 +196,12 @@ public class TestMyPoint {
 	}
 
 	@Test
-	public void testTranslateI1() {
-		p.translate(new ITranslation() {
-			@Override
-			public int getTy() {
-				return 1;
-			}
-
-			@Override
-			public int getTx() {
-				return 2;
-			}
-		});
-		assertEquals(1, p.getX(), 0);
-		assertEquals(1, p.getY(), 0);
-	}
-
-	@Test
 	public void testTranslateI2() {
 		p.translate(null);
 		assertEquals(0, p.getX(), 0);
 		assertEquals(0, p.getY(), 0);
 	}
 
-	// Mockito
 	@Test
 	public void testSetPoint() {
 		Random r1 = Mockito.mock(Random.class);

@@ -52,7 +52,7 @@ public class MyPoint {
 	 *            otherwise nothing is done.
 	 */
 	public void setX(final double newX) {
-		if (newX == Double.NaN) {
+		if (Double.isNaN(newX)) {
 			return;
 		}
 		x = newX;
@@ -66,7 +66,7 @@ public class MyPoint {
 	 *            otherwise nothing is done.
 	 */
 	public void setY(final double newY) {
-		if (newY == Double.NaN) {
+		if (Double.isNaN(newY)) {
 			return;
 		}
 		y = newY;
@@ -226,6 +226,9 @@ public class MyPoint {
 	 *            The Y translation.
 	 */
 	public void translate(final double tx, final double ty) {
+		if(Double.isNaN(tx) || Double.isNaN(ty)) {
+			return;
+		}
 		setX(x + tx);
 		setY(y + ty);
 	}
