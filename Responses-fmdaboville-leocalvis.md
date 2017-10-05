@@ -8,5 +8,6 @@ Master 1 ICE, GLa - V&V - Labs
 
 ## Couverture de code
 
-> Q.2
+> Q.2 Non, car certaines instructions peuvent réagir d'une manière différentes en fonction des valeurs.
+
 
