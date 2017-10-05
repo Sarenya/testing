@@ -10,4 +10,9 @@ Master 1 ICE, GLa - V&V - Labs
 
 > Q.2 Non, car certaines instructions peuvent réagir d'une manière différentes en fonction des valeurs.
 
+## Test d'intégration pour Java avec EasyMock ou Mockito
+
+> Q.3a Dû aux facteurs aléatoires des paramètres, on ne peut faire des tests qui certifient un fonctionnement correct.
+
+
 

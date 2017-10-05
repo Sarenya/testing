@@ -2,9 +2,12 @@ package test;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.Random;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mockito;
 
 import main.fr.ut2j.m1ice.ootesting.ITranslation;
 import main.fr.ut2j.m1ice.ootesting.MyPoint;
@@ -133,7 +136,7 @@ public class TestMyPoint {
 	public void testComputeAngle3() {
 		MyPoint point = new MyPoint(0, -1);
 		double angle = p.computeAngle(point);
-		assertEquals(4.71239, angle, 0.0001);
+		assertEquals(-1.5708, angle, 0.0001);
 	}
 
 	@Test
@@ -215,4 +218,19 @@ public class TestMyPoint {
 		assertEquals(0, p.getX(), 0);
 		assertEquals(0, p.getY(), 0);
 	}
+
+	// Mockito
+	@Test
+	public void testSetPoint() {
+		Random r1 = Mockito.mock(Random.class);
+		Random r2 = Mockito.mock(Random.class);
+		MyPoint point = new MyPoint();
+		Mockito.when(r1.nextInt()).thenReturn(12);
+		Mockito.when(r2.nextInt()).thenReturn(73);
+		point.setPoint(r1, r2);
+		assertEquals(12, point.getX(), 0.0001);
+		assertEquals(73, point.getY(), 0.0001);
+
+	}
+
 }

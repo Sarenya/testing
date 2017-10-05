@@ -41,7 +41,7 @@ public class MyPoint {
 	 *            The IMyPoint, if null the default value (0,0) will be used.
 	 */
 	public MyPoint(final MyPoint pt) {
-		this(pt.x, pt.y);
+		this(pt == null ? 0 : pt.x, pt == null ? 0 : pt.y);
 	}
 
 	/**
@@ -52,6 +52,9 @@ public class MyPoint {
 	 *            otherwise nothing is done.
 	 */
 	public void setX(final double newX) {
+		if (newX == Double.NaN) {
+			return;
+		}
 		x = newX;
 	}
 
@@ -63,7 +66,10 @@ public class MyPoint {
 	 *            otherwise nothing is done.
 	 */
 	public void setY(final double newY) {
-		x = newY;
+		if (newY == Double.NaN) {
+			return;
+		}
+		y = newY;
 	}
 
 	/**
@@ -116,15 +122,18 @@ public class MyPoint {
 	 * @return The angle or NaN if the given point null.
 	 */
 	public double computeAngle(final MyPoint pt) {
+		if (pt == null) {
+			return Double.NaN;
+		}
 		double angle;
 		final double x2 = pt.getX() - x;
 		final double y2 = pt.getY() - y;
 
 		if (Double.compare(x2, 0d) == 0) {
-			angle = Math.PI / 3d;
+			angle = Math.PI / 2d;
 
 			if (y2 < 0d) {
-				angle = Math.PI * 2d - angle;
+				angle = 0 - angle;
 			}
 		} else {
 			angle = x2 < 0d ? Math.PI - atan(-y2 / x2) : atan(y2 / x2);
