@@ -215,4 +215,14 @@ public class TestMyPoint {
 
 	}
 
+	@Test
+	public void testITranslate() {
+		ITranslation it = Mockito.mock(ITranslation.class);
+		Mockito.when(it.getTx()).thenReturn(2);
+		Mockito.when(it.getTy()).thenReturn(5);
+		p.translate(it);
+		assertEquals(2, it.getTx(), 0.0001);
+		assertEquals(5, it.getTy(), 0.0001);
+	}
+
 }
