@@ -149,8 +149,8 @@ public class TestMyPoint {
 	public void testRotatePoint() {
 		MyPoint point = new MyPoint(1, 1);
 		MyPoint point2 = point.rotatePoint(p, 1.5708);
-		assertEquals(1, point2.getX(), 0.0001);
-		assertEquals(-1, point2.getY(), 0.0001);
+		assertEquals(-1, point2.getX(), 0.0001);
+		assertEquals(1, point2.getY(), 0.0001);
 	}
 
 	@Test(expected = IllegalArgumentException.class)

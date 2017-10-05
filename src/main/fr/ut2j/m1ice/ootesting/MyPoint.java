@@ -204,7 +204,7 @@ public class MyPoint {
 	public MyPoint centralSymmetry(final MyPoint centre) {
 		if (centre == null)
 			throw new IllegalArgumentException();
-		return rotatePoint(centre, 2d * Math.PI);
+		return rotatePoint(centre, Math.PI);
 	}
 
 	/**
