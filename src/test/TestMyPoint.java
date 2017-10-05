@@ -64,6 +64,14 @@ public class TestMyPoint {
 	}
 	
 	@Test
+	public void testScale() {
+		MyPoint point = new MyPoint(1,2);
+		MyPoint point1 = point.scale(3); 
+		assertEquals(3, point1.getX(), 0.0001);
+		assertEquals(6, point1.getY(), 0.0001);
+	}
+	
+	@Test
 	public void testGetSetX() {
 		double val = 4874.52;
 		p.setX(val);
@@ -97,7 +105,6 @@ public class TestMyPoint {
 	public void testHorizontalSymmetry1() {
 		MyPoint p0 = new MyPoint(7, 4);
 		MyPoint point = p0.horizontalSymmetry(p);
-		
 		assertEquals((-7), point.getX(), 0);
 		assertEquals(4, point.getY(), 0);
 	}
@@ -105,6 +112,41 @@ public class TestMyPoint {
 	@Test(expected = IllegalArgumentException.class)
 	public void testHorizontalSymmetry2() {
 		p.horizontalSymmetry(null);
+	}
+	
+	@Test
+	public void testComputeAngle1() {
+		MyPoint point = new MyPoint(1,1);
+		double angle = p.computeAngle(point);
+		assertEquals(0.78539, angle, 0.0001);
+	}
+	
+	@Test
+	public void testComputeAngle2() {
+		MyPoint point = new MyPoint(0,1);
+		double angle = p.computeAngle(point);
+		assertEquals(1.5708, angle, 0.0001);
+	}
+	
+	@Test
+	public void testComputeAngle3() {
+		MyPoint point = new MyPoint(0,-1);
+		double angle = p.computeAngle(point);
+		assertEquals(4.71239, angle, 0.0001);
+	}
+	
+	@Test
+	public void testComputeAngle4() {
+		double angle = p.computeAngle(null);
+		assertEquals(Double.NaN, angle, 0);
+	}
+	
+	@Test
+	public void testRotatePoint() {
+		MyPoint point = new MyPoint(1,1);
+		MyPoint point2 = point.rotatePoint(p, 1.5708);
+		assertEquals(1, point2.getX(), 0.0001);
+		assertEquals(-1, point2.getY(), 0.0001);
 	}
 
 }
